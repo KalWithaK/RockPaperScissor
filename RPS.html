@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Rock Paper Scissor</title>
+</head>
+<body>
+	<style type="text/css">
+		img {
+			width: 150px;
+			height: 150px;
+			margin-left: 300px;
+			
+		}
+
+		button{
+			border: none;
+			padding: 0;
+			background: none;
+			cursor: pointer;
+			outline: none;
+		}
+
+		#rockButton:hover{
+			border-color: red;
+			border-right-style: solid;
+			margin-left: -3px;
+		}
+
+		#paperButton:hover{
+			border-color: yellow;
+			border-right-style: solid;
+			margin-left: -3px;
+		}
+
+		#scissorButton:hover{
+			border-color: lightblue;
+			border-right-style: solid;
+			margin-left: -3px;
+		}
+
+		img.right{
+			
+			-webkit-transform: scaleX(-1);
+  			transform: scaleX(-1);
+		}
+
+		h2{
+			float: left;
+			margin-left: 360px;
+		}
+
+		#computer{
+			margin-left: 400px;
+		}
+	</style>
+	
+	<h1>Choose Rock, Paper, or Scissor.</h1>
+	
+	<h2 id="you">You</h2> <h2 id="computer">Computer</h2>
+	<br><br><br><br><br>
+
+	<button id="rockButton" onclick="userChoice = 'Rock'"><img src="images/rock.png"></button> <img class="right" src="images/rock.png">
+	<br>
+	<button id="paperButton" onclick="userChoice = 'Paper'"><img src="images/paper.png"></button> <img class="right" src="images/paper.png">
+	<br>
+	<button id="scissorButton" onclick="userChoice = 'Scissor'"><img src="images/scissor.png"></button> <img class="right" src="images/scissor.png">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		
+
+		var userChoice = undefined;
+		var choices = ["Rock", "Paper", "Scissor"];
+	 	
+	 	function compChoice(choices) {
+  			var compChoice = Math.floor(Math.random() * choices.length);
+  			return choices[compChoice];
+  		};					
+
+  		choices = compChoice(choices);
+			
+
+  			$("#rockButton").click(function event(){
+  			
+  			if (userChoice == "Rock" && choices == "Rock"){
+  				if(!alert("Computer chose rock. You Tied!")){window.location.reload();}
+  			}
+  			else if (userChoice == "Rock" && choices == "Scissor"){
+  				if(!alert("Computer chose Scissor. YOU WIN!!")){window.location.reload();}
+  			}
+  			else if (userChoice == "Rock" && choices == "Paper"){
+  				if(!alert("Computer chose Paper. YOU LOSE!")){window.location.reload();}
+  			}
+  		}); 
+  			
+			$("#paperButton").click(function event(){
+  			if (userChoice == "Paper" && choices == "Rock"){
+  				if(!alert("Computer chose rock. YOU WIN!!")){window.location.reload();}
+  			}
+  			else if (userChoice == "Paper" && choices == "Scissor"){
+  				if(!alert("Computer chose Scissor. YOU LOSE!")){window.location.reload();}
+  			}
+  			else if (userChoice == "Paper" && choices == "Paper"){
+  				if(!alert("Computer chose Paper. You Tied!")){window.location.reload();}
+  			}
+  		});
+
+  			$("#scissorButton").click(function event(){
+  			if (userChoice == "Scissor" && choices == "Rock"){
+  				if(!alert("Computer chose rock. YOU LOSE!")){window.location.reload();}
+  			}
+  			else if (userChoice == "Scissor" && choices == "Scissor"){
+  				if(!alert("Computer chose Scissor. You Tied!")){window.location.reload();}
+  			}
+  			else if (userChoice == "Scissor" && choices == "Paper"){
+  				if(!alert("Computer chose Paper. YOU WIN!!")){window.location.reload();}
+  		
+  			}
+  		}); 
+
+ 
+	</script>
+</body>
+</html>
